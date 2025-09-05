@@ -7,7 +7,27 @@ public class TwoSum {
 
     public static void main(String[] args) {
 
-        System.out.println(Arrays.toString(sol1(new int[]{2, 7, 11, 13}, 9)));
+        System.out.println(Arrays.toString(sol2(new int[]{2, 7, 11, 13}, 9)));
+        Arrays.sort(new int[] {1, 2});
+    }
+
+    // O(n)
+    static int[] sol2(int[] in_arr, int in_target) {
+
+        HashMap<Integer, Integer> nums = new HashMap<>();
+
+        for (int k = 0; k < in_arr.length; k++) {
+
+            int remain = in_target - in_arr[k];
+
+            if (nums.containsKey(remain)) {
+                return new int[] {nums.get(remain), k};
+            }
+
+            nums.put(in_arr[k], k);
+        }
+
+        return new int[] {-1};
     }
 
     // O(n) + O(n^2)
