@@ -4,17 +4,23 @@ package Practices;
 // Length from 1 to 200, all English letters in lowercase
 
 import java.util.Arrays;
-import java.util.List;
 
 public class FindLongestCommonPrefixString {
 
     public static void main(String[] args){
 
         String[] strings = {"interspecies", "interstellar", "interstate"};
-        System.out.println(getLongestCommonPrefix(strings));
+        System.out.println(sol1(strings));
     }
 
-    static String getLongestCommonPrefix(String[] strs) {
+    static String sol2() {
+
+
+
+        return "";
+    }
+
+    static String sol1(String[] strs) {
 
         String longest = "";
 

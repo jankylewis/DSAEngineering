@@ -30,10 +30,41 @@ public class MoveZeroes {
         int[] ints2 = new int[] {0};
         int[] ints3 = new int[] {1, 2};
 
-        System.out.println(Arrays.toString(sol1(ints1)));
+        System.out.println(Arrays.toString(sol2(ints2)));
     }
 
-    // Big O of O(2n) with 2 separate fors
+    static int[] sol2(int[] arr) {
+
+        if (arr.length < 1)
+            return new int[]{};
+
+        int left = 0;
+        int right = arr.length - 1;
+
+        while (left < right) {
+
+            if (arr[right] == 0) {
+                right--;
+            }
+
+            if (arr[left] == 0) {
+                doSwap(arr, left, right);
+                right--;
+            }
+
+            left++;
+        }
+
+        return arr;
+    }
+
+    static void doSwap(int[] arr, int idx1, int idx2) {
+        int temp = arr[idx1];
+        arr[idx1] = arr[idx2];
+        arr[idx2] = temp;
+    }
+
+    // Big O of O(2n) with 2 separate fors, no in-place
     static int[] sol1(int[] arr) {
 
         ArrayList<Integer> ints = new ArrayList<>();
